@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ModalController } from '@ionic/angular';
+import { Camera } from '@capacitor/camera';
 
 // export interface ArConfig {
 //   mode: 'marker' | 'image' | 'location';
@@ -24,11 +25,31 @@ import { ModalController } from '@ionic/angular';
   standalone: false
 })
 export class ArComponent {
-  constructor(private modalCtrl: ModalController) { }
 
-  ngOnInit() { }
+  permissionGranted = false;
+
+  constructor(private modalController: ModalController) {}
+
+  async ngOnInit() {
+    await this.requestCameraPermission();
+  }
+
+  async requestCameraPermission() {
+    try {
+      const permission = await Camera.checkPermissions();
+
+      if (permission.camera !== 'granted') {
+        const request = await Camera.requestPermissions();
+        this.permissionGranted = request.camera === 'granted';
+      } else {
+        this.permissionGranted = true;
+      }
+    } catch (error) {
+      console.error('Error al solicitar permisos:', error);
+    }
+  }
 
   close() {
-    this.modalCtrl.dismiss();
+    this.modalController.dismiss();
   }
 }

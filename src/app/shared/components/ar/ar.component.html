@@ -1,14 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>AR Launcher</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="close()">
-        <ion-icon name="close" slot="icon-only"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <iframe src="../../../../assets/aframe-ar.html"></iframe>
-</ion-content>
+      <ion-toolbar>
+        <ion-title>AR Launcher</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="close()">
+            <ion-icon name="close" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-no-padding">
+      <iframe
+        *ngIf="permissionGranted"
+        src="assets/aframe-ar.html"
+        allow="camera; microphone"
+        class="ar-iframe">
+      </iframe>
+      <div *ngIf="!permissionGranted" class="permission-message">
+        <p>Solicitando permisos de cámara...</p>
+      </div>
+    </ion-content>
