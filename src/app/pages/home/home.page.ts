@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import { ArComponent } from '../shared/components/ar/ar.component';
 import { IonRouterOutlet, ModalController } from '@ionic/angular';
+import { ArComponent } from 'src/app/shared/components/ar/ar.component';
 
 @Component({
   selector: 'app-home',

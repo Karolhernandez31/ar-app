@@ -1,0 +1,75 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="form-wrapper">
+    <div class="form-container">
+      <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <app-input-full
+          formControlName="email"
+          type="email"
+          [placeholder]="'Ingrese su email' "
+          class="custom-input"
+          [label]="'Email' "
+          icon="mail"
+          [form]="registerForm"
+          fieldName="email"
+        ></app-input-full>
+
+        <app-input-full
+          formControlName="name"
+          type="text"
+          [placeholder]="'Ingrese su nombre' "
+          class="custom-input"
+          [label]="'Nombre' "
+          icon="person-outline"
+          [form]="registerForm"
+          fieldName="name"
+        ></app-input-full>
+
+        <app-input-full
+          formControlName="lastname"
+          type="text"
+          [placeholder]="'Ingrese su apellido' "
+          class="custom-input"
+          [label]="'Apellido' "
+          icon="person-outline"
+          [form]="registerForm"
+          fieldName="lastname"
+        ></app-input-full>
+
+        <app-input-full
+          formControlName="password"
+          type="password"
+          [placeholder]="'Ingrese la contraseña' "
+          class="custom-input"
+          [label]="'Contraseña' "
+          icon="lock-closed"
+          [form]="registerForm"
+          fieldName="password"
+        ></app-input-full>
+
+        <app-input-full
+          formControlName="confirmPassword"
+          type="password"
+          [placeholder]="'Ingrese la contraseña nuevamente' "
+          class="custom-input"
+          [label]="'Confirmar contraseña' "
+          icon="lock-closed"
+          [form]="registerForm"
+          fieldName="confirmPassword"
+        ></app-input-full>
+        <ion-button
+          expand="full"
+          type="submit"
+          [disabled]="registerForm.invalid"
+          >{{ 'Registrar'  }}</ion-button
+        >
+        <app-link
+          [description]="'Tienes cuenta?' "
+          [title]="'Inicia sesion' "
+          [route]="'/login'"
+        ></app-link>
+      </form>
+    </div>
+  </div>
+</ion-content>

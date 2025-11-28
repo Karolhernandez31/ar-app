@@ -1,0 +1,103 @@
+// === INPUT GROUPS ===
+.input-group {
+  margin-bottom: 1.25rem; // separación entre inputs
+
+  .input-wrapper {
+    display: flex;
+    align-items: stretch;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1.5px solid #d1d1d6;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &:focus-within {
+      border-color: #007aff;
+      box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15);
+
+      .input-icon ion-icon {
+        color: #007aff;
+        transform: scale(1.1);
+      }
+
+      .floating-label {
+        color: #007aff;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .input-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.9rem;
+    background: #f2f2f7;
+    border-right: 1px solid #e5e5ea;
+
+    ion-icon {
+      font-size: 1.2rem;
+      color: #8e8e93;
+      transition: all 0.3s ease;
+    }
+  }
+
+  .input-content {
+    flex: 1;
+    position: relative;
+
+    .floating-label {
+      position: absolute;
+      top: 0.6rem;
+      left: 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #8e8e93;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .custom-input {
+      --background: transparent;
+      --padding-top: 1.75rem;
+      --padding-bottom: 0.75rem;
+      --padding-start: 1rem;
+      --padding-end: 1rem;
+      --color: #1c1c1e; // buen contraste con fondo blanco
+      font-size: 1rem;
+    }
+  }
+
+  // Estado de error
+  &.error-state {
+    .input-wrapper {
+      border-color: #ff3b30;
+      background: #fff5f5;
+
+      .input-icon ion-icon {
+        color: #ff3b30;
+      }
+
+      .floating-label {
+        color: #ff3b30;
+      }
+    }
+  }
+
+  .error-message {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+    padding: 0 0.75rem;
+    color: #ff3b30;
+    font-size: 0.85rem;
+    animation: errorSlide 0.3s ease-out;
+
+    .error-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+  }
+}

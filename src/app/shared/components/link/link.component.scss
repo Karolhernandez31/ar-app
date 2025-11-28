@@ -1,0 +1,16 @@
+.option-section {
+  text-align: center;
+  margin-top: 2rem;
+
+  .option-text {
+    font-size: 0.9rem;
+    color: #1c1c1e;
+
+    .option-link {
+      --color: #007aff;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-transform: none;
+    }
+  }
+}

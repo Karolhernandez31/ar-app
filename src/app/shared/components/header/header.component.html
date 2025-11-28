@@ -1,0 +1,27 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    @if(showBackButton){
+    <ion-buttons slot="start" (click)="goBack()">
+      <ion-button fill="clear" class="icon-btn round-btn back-btn">
+        <ion-icon name="camera-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    }
+
+    <ion-title class="app-title">
+      <div class="title-content">
+        <ion-icon name="albums-outline"></ion-icon>
+        <span class="title-text">{{ title }}</span>
+      </div>
+    </ion-title>
+    @if(showMenuButton){
+    <ion-buttons slot="end" (click)="logout()">
+      <ion-button fill="clear" class="icon-btn round-btn back-btn">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    }
+  </ion-toolbar>
+
+  <div class="wave-effect"></div>
+</ion-header>

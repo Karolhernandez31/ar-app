@@ -1,0 +1,23 @@
+<div class="input-group" [class.error-state]="isFieldInvalid()">
+  <div class="input-wrapper">
+    <div class="input-icon">
+      <ion-icon [name]="icon"></ion-icon>
+    </div>
+    <div class="input-content">
+      <ion-label class="floating-label">{{label}}</ion-label>
+      <ion-input
+        [type]="type"
+        [placeholder]="placeholder"
+        [value]="value"
+        (ionInput)="onInputChange($event)"
+        class="custom-input"
+        (ionBlur)="onBlur()"
+        [readonly]="readonly"
+      ></ion-input>
+    </div>
+  </div>
+  <div class="error-message" *ngIf="isFieldInvalid()">
+    <ion-icon name="alert-circle" class="error-icon"></ion-icon>
+    <span>{{ getErrorMessage() }}</span>
+  </div>
+</div>
