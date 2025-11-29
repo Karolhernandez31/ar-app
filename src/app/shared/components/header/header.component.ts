@@ -26,5 +26,6 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authSrv.logout();
+    window.location.href = '/login';
   }
 }

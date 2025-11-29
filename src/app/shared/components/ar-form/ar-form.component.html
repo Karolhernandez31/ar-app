@@ -1,0 +1,59 @@
+<app-header [title]="'Guardar target'" [showBackButton]="true"></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="form-wrapper">
+    <div class="form-container">
+      <form [formGroup]="arConfig" (ngSubmit)="submit()">
+        <div class="input-group">
+          <div class="input-wrapper">
+            <div class="input-icon">
+              <ion-icon name="settings-outline"></ion-icon>
+            </div>
+
+            <div class="input-content">
+              <label class="floating-label">Modo</label>
+
+              <ion-select
+                interface="popover"
+                placeholder="Seleccione un modo"
+                formControlName="mode"
+                class="custom-input"
+              >
+                <ion-select-option value="marker">Marker</ion-select-option>
+                <ion-select-option value="image">Image</ion-select-option>
+                <ion-select-option value="location">Location</ion-select-option>
+              </ion-select>
+            </div>
+          </div>
+        </div>
+
+        <!-- SELECT PRESET -->
+        <div class="input-group">
+          <div class="input-wrapper">
+            <div class="input-icon">
+              <ion-icon name="options-outline"></ion-icon>
+            </div>
+
+            <div class="input-content">
+              <label class="floating-label">Preset</label>
+
+              <ion-select
+                interface="popover"
+                placeholder="Seleccione un preset"
+                formControlName="preset"
+                class="custom-input"
+              >
+                <ion-select-option value="hiro">Hiro</ion-select-option>
+                <ion-select-option value="kanji">Kanji</ion-select-option>
+                <ion-select-option value="custom">Custom</ion-select-option>
+              </ion-select>
+            </div>
+          </div>
+        </div>
+        <ion-button expand="full" type="submit" [disabled]="arConfig.invalid">{{
+          "Continuar"
+        }}</ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>

@@ -12,12 +12,12 @@
       vr-mode-ui="enabled: false"
     >
       <a-assets>
-        <img id="ronaldo" src="./ronaldo.png" crossorigin="anonymous" />
+        <img id="image" src="./ronaldo.png" crossorigin="anonymous" />
       </a-assets>
 
       <a-marker preset="hiro">
         <a-image
-          src="#ronaldo"
+          src="#image"
           rotation="-90 0 0"
           width="1.5"
           height="2"
@@ -31,6 +31,15 @@
       const params = new URLSearchParams(location.search);
       const mode = params.get("mode") || "marker";
       const src = params.get("src") || "";
+      const markerPreset = params.get("markerPreset") || "hiro";
+      const patternUrl = params.get("patternUrl");
+      const width = parseFloat(params.get("width") || "3");
+      const height = parseFloat(params.get("height") || "4");
+      const type = params.get("type");
+      const preload = (params.get("preload") || "true") === "true";
+
+      document.getElementById("image").setAttribute("src", src);
+      let currentFacing = params.get("facingMode") || "environment";
     </script>
   </body>
 </html>

@@ -1,7 +1,32 @@
 <!-- company-store.page.html -->
 <app-header [title]="'Pagina Principal'" [showMenuButton]="true"></app-header>
+<ion-content [fullscreen]="true">
+  <div class="home-container">
+    <h2>Bienvenido a la aplicación AR</h2>
+    <p>
+      Explora las funcionalidades de realidad aumentada haciendo clic en el
+      botón de abajo.
+    </p>
+  </div>
+  @for (item of pictures; track $index) {
+
+  <app-modern-card
+    [icon]="item.url"
+    [title]="item.name"
+    [tags]="[item.mode, item.preset, item.type]"
+    [isSelected]="selectedPic === item.url"
+    (onSelect)="selectPicture(item.url)"
+    (onDelete)="deletePic(item.id)"
+  ></app-modern-card>
+  }
+</ion-content>
 <ion-fab horizontal="end" vertical="bottom" slot="fixed" (click)="openAR()">
   <ion-fab-button color="primary">
     <ion-icon name="scan"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-fab horizontal="start" vertical="bottom" slot="fixed" (click)="pick()">
+  <ion-fab-button color="primary">
+    <ion-icon name="add"></ion-icon>
   </ion-fab-button>
 </ion-fab>

@@ -6,6 +6,8 @@ import { ArComponent } from './components/ar/ar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { InputFullComponent } from './components/input-full/input-full.component';
 import { LinkComponent } from './components/link/link.component';
+import { ArFormComponent } from './components/ar-form/ar-form.component';
+import { CardComponent } from './components/card/card.component';
 
 const MODULES = [
   CommonModule,
@@ -18,7 +20,9 @@ const COMPONENTS = [
   ArComponent,
   HeaderComponent,
   InputFullComponent,
-  LinkComponent
+  LinkComponent,
+  ArFormComponent,
+  CardComponent
 ]
 
 @NgModule({

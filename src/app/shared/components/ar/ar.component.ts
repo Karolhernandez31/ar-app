@@ -25,13 +25,15 @@ import { Camera } from '@capacitor/camera';
   standalone: false
 })
 export class ArComponent {
-
+  iframeSrc?: SafeResourceUrl;
   permissionGranted = false;
+  @Input() url: string = '';
 
-  constructor(private modalController: ModalController) {}
+  constructor(private modalController: ModalController, private sanitizer: DomSanitizer) { }
 
   async ngOnInit() {
     await this.requestCameraPermission();
+    this.buildIframeSrc();
   }
 
   async requestCameraPermission() {
@@ -49,7 +51,17 @@ export class ArComponent {
     }
   }
 
+  buildIframeSrc() {
+    this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(this.buildUrl(this.url));
+  }
   close() {
     this.modalController.dismiss();
+  }
+
+  private buildUrl(src: any): string {
+    const params = new URLSearchParams({
+      src: this.url,
+    });
+    return `/assets/aframe-ar.html?${params.toString()}`;
   }
 }

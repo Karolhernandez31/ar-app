@@ -6,6 +6,10 @@
     </ion-toolbar>
   </ion-header>
   <div class="form-wrapper">
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ19ydGdlNHl4ajRlOmuj_K5g9ZplCezuwQg&s"
+      class="login-image"
+    />
     <div class="form-container">
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
         <app-input-full
@@ -38,7 +42,7 @@
         >
           <div class="button-content" *ngIf="!isLoading">
             <ion-icon name="log-in" class="button-icon"></ion-icon>
-            <span>{{ 'Iniciar Sesion'  }}</span>
+            <span>{{ 'Iniciar Sesion' }}</span>
           </div>
           <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
         </ion-button>

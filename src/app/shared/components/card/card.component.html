@@ -1,0 +1,51 @@
+<ion-card class="modern-card">
+  <div class="card-content">
+    <!-- Imagen cuadrada con bordes redondeados -->
+    <div class="image-container">
+      <img
+        [src]="icon"
+        [alt]="title"
+        class="rounded-image"
+        (error)="onImageError($event)"
+      />
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content-container">
+      <h3 class="card-title">{{ title }}</h3>
+
+      <div class="tags-container">
+        <span class="tag" *ngFor="let tag of tags; let i = index" [class]="'tag-' + (i % 3)">
+          {{ tag }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="actions-container">
+      <ion-button
+        fill="clear"
+        class="action-btn select-btn"
+        (click)="onSelect.emit()"
+      >
+        <ion-icon
+          slot="icon-only"
+          [name]="isSelected ? 'checkmark-circle' : 'radio-button-off-outline'"
+          class="select-icon"
+        ></ion-icon>
+      </ion-button>
+
+      <ion-button
+        fill="clear"
+        class="action-btn delete-btn"
+        (click)="onDelete.emit()"
+      >
+        <ion-icon
+          slot="icon-only"
+          name="trash-outline"
+          class="delete-icon"
+        ></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-card>

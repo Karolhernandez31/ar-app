@@ -11,7 +11,7 @@
 <ion-content class="ion-no-padding">
   <iframe
     *ngIf="permissionGranted"
-    src="assets/aframe-ar.html"
+    [src]="iframeSrc"
     allow="camera; microphone"
     class="ar-iframe"
   >
